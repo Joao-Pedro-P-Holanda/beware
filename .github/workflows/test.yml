@@ -25,13 +25,16 @@ jobs:
           - "pypy3.14"
     steps:
       - uses: actions/checkout@v6.0.2
+      - run: pipx install poetry==2.4.1
       - uses: actions/setup-python@v6.2.0
         with:
           python-version: '3.13' 
           cache: 'poetry'
 
+      - run: poetry sync --only test
+
       - name: Run tests with coverage
-        run: coverage run --source=src -m pytest
+        run: poetry run coverage run --source=src -m pytest
 
       - name: Publish coverage on workflow summary
-        run: coverage report --format=markdown >> ${GITHUB_STEP_SUMMARY}
+        run: poetry run coverage report --format=markdown >> ${GITHUB_STEP_SUMMARY}
