@@ -1,0 +1,45 @@
+name: Publish python package
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v6.0.2
+        with:
+          persist-credentials: false
+      - run: pipx install poetry==2.4.1
+      - uses: actions/setup-python@v6.2.0
+        with:
+          python-version: '3.14' 
+          cache: 'poetry'
+
+      - name: Build package wheel and tarball
+        run: poetry build
+
+      - name: Store package
+        uses: actions/upload-artifact@v5
+        with:
+          name: python-package
+          path: dist/
+  publish-to-pypi:
+    runs-on: ubuntu-22.04
+    needs:
+      - build
+    environment:
+      name: publishing
+      url: https://pypi.org/p/beware
+    permissions:
+      id-token: write
+    steps:
+    - name: Download all the dists
+      uses: actions/download-artifact@v6
+      with:
+        name: python-package
+        path: dist/
+    - name: Publish distribution 📦 to PyPI
+      uses: pypa/gh-action-pypi-publish@release/v1
+
