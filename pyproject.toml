@@ -1,0 +1,78 @@
+[project]
+name = "beware"
+version = "0.1.0"
+description = "A pure python package with zero dependencies that provides functions to track the usage of unsafe attributes on the code and perform sanitization."
+authors = [
+    {name = "João Pedro", email = "joaopedroph.dev@gmail.com"}
+]
+classifiers = [
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Programming Language :: Python :: Implementation :: PyPy",
+]
+license="LGPLv3+"
+license-files=["LICENSE"]
+readme = "README.md"
+keywords = ["sanitization", "security"]
+requires-python = ">=3.10"
+dependencies = [
+]
+
+[project.urls]
+
+Repository = "https://github.com/Joao-Pedro-P-Holanda/beware"
+
+
+[tool.poetry]
+packages = [{include = "beware", from = "src"}]
+
+[tool.towncrier]
+directory = "changelog"
+package = "beware"
+package_dir = "src"
+title_format = "## [{version}](https://github.com/Joao-Pedro-P-Holanda/beware/tree/{version}) - {project_date}"
+filename = "CHANGELOG.md"
+
+
+[[tool.towncrier.type]]
+name = "Security"
+
+[[tool.towncrier.type]]
+name = "Removed"
+
+[[tool.towncrier.type]]
+name = "Deprecated"
+
+[[tool.towncrier.type]]
+name = "Added"
+
+[[tool.towncrier.type]]
+name = "Changed"
+
+[[tool.towncrier.type]]
+name = "Fixed"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[dependency-groups]
+test = [
+    "pytest (==9.0.3)",
+    "coverage (==7.13.5)",
+    "pytest-asyncio (==1.3.0)"
+]
+lint = [
+    "black (==26.3.1)",
+    "mypy (==2.1.0)"
+]
+docs = [
+    "towncrier (==25.8.0)",
+    "mkdocs (==1.6.1)"
+]
+
+
