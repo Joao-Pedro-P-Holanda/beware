@@ -29,6 +29,7 @@ def sanitizes(
 
     Examples
     --------
+    >>> from beware import unsafe
     >>> class MyClass:
     ...     a = unsafe()
     ...
@@ -37,12 +38,9 @@ def sanitizes(
     ...     instance.a = "sanitized"
     ...
     >>> obj = MyClass()
-    >>> sanitize_a(MyClass.a):
-    ...     instance.a = "sanitized"
-    ...
     >>> sanitize_a(obj)
     >>> obj.a # can be accessed outside of an unsafe context
-    "sanitized"
+    'sanitized'
     """
 
     def decorator(func: Callable[P, R]) -> Callable[P, R]:

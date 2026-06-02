@@ -15,13 +15,15 @@ def sanitize_context(*attrs: Any):
 
     Examples
     --------
+    >>> from beware import unsafe
     >>> class MyClass:
     ...     a = unsafe()
+    ...
     >>> obj = MyClass()
     >>> with sanitize_context(MyClass.a):
-    ...     instance.a = "sanitized"
-    >>> instance.a # can be accessed outside an unsafe_context
-    "sanitized"
+    ...     obj.a = "sanitized"
+    >>> obj.a # can be accessed outside an unsafe_context
+    'sanitized'
     """
 
     with unsafe_context(*attrs):

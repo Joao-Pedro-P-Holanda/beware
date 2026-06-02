@@ -23,11 +23,16 @@ def unsafe_context(*attrs: Unsafe) -> Generator[None, None, None]:
 
     Examples
     --------
+    >>> from beware import unsafe
     >>> class MyClass:
-    ...     a = unsafe()
+    ...     a = unsafe(default=1)
+    ...
     >>> obj = MyClass()
     >>> with unsafe_context(MyClass.a):
-    ...     print(instance.a) # won't raise an exception, even if it is not sanitized
+    ...     x = obj.a # won't raise an exception, even if it is not sanitized
+    ...
+    >>> x
+    1
     """
 
     for attr in attrs:
