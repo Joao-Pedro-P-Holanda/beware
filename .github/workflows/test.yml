@@ -33,6 +33,9 @@ jobs:
 
       - run: poetry sync --only test
 
+      - name: Run documentation tests 
+        run: poetry run pytest --doctest-modules src
+
       - name: Run tests with coverage
         run: poetry run coverage run --source=src -m pytest
 
