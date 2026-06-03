@@ -18,6 +18,6 @@ unsafe attributes on the code and perform sanitization.
 ## Roadmap
 
 - [ ] Publish code documentation
-- [ ] Add doctests for docstrings
+- [x] Add doctests for docstrings
 - [ ] Define a pytest plugin to allow easier checks of unsafe access without modifying the source code
 
