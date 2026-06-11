@@ -1,4 +1,4 @@
-from typing import Any, override
+from typing import Any
 import pytest
 from beware import unsafe, unsafe_context
 from beware.exceptions import UnsafeReferenceException
@@ -13,7 +13,6 @@ class ExampleWithGetAttribute(Example):
     def __init__(self) -> None:
         super().__init__()
 
-    @override
     def __getattribute__(self, name: str, /) -> Any:
         return super().__getattribute__(name)
 

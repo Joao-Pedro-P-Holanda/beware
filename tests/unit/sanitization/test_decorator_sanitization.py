@@ -2,7 +2,7 @@ from threading import Thread
 import threading
 import time
 from types import LambdaType
-from typing import Any, Callable, TypeVar
+from typing import Any, Callable
 
 import pytest
 from beware import unsafe, sanitizes
@@ -132,15 +132,17 @@ def _docstring_and_annotated_function(a: int):
 
 functions_to_wrap: list[Callable[..., Any]] = [_docstring_and_annotated_function]
 
+# tests of type parameter lists wrap are made with eval to avoid invalid syntax on python < 3.12
 if sys.version_info[0] >= 3 and sys.version_info[1] >= 12:
-    _T = TypeVar("_T")
-
-    def _type_parameter_function[_T]():
-        """
-        Function with docstring and arguments with type params
-        """
-
-    functions_to_wrap.append(_type_parameter_function)
+    exec(
+        "\n".join(
+            [
+                "def _type_parameter_function[_T]():",
+                '\t"""Function with docstring and arguments with type params"""',
+                "functions_to_wrap.append(_type_parameter_function)",
+            ]
+        )
+    )
 
 
 @pytest.mark.parametrize("func", functions_to_wrap)
