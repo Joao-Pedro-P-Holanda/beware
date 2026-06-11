@@ -25,6 +25,7 @@ jobs:
           - "3.13"
           - "3.14"
       max-parallel: 7
+      fail-fast: false
     concurrency:
       group: ${{ github.workflow }}-${{ matrix.python-version }}
       cancel-in-progress: false
