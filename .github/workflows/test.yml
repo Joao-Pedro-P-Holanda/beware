@@ -22,11 +22,8 @@ jobs:
           - "3.11"
           - "pypy3.11"
           - "3.12"
-          - "pypy3.12"
           - "3.13"
-          - "pypy3.13"
           - "3.14"
-          - "pypy3.14"
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}-${{ matrix.python-version }}
       cancel-in-progress: true
