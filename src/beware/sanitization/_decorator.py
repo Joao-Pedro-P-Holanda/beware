@@ -1,6 +1,7 @@
 import inspect
+from collections.abc import Callable
 from functools import wraps
-from typing import Callable, ParamSpec, TypeVar, cast
+from typing import ParamSpec, TypeVar, cast
 
 from beware._unsafe import Unsafe
 from ._context import sanitize_context

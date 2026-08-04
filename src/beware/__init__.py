@@ -1,4 +1,4 @@
 from ._unsafe import Unsafe, unsafe, unsafe_context
-from .sanitization import sanitizes, sanitize_context
+from .sanitization import sanitize_context, sanitizes
 
-__all__ = ["Unsafe", "sanitizes", "sanitize_context", "unsafe", "unsafe_context"]
+__all__ = ["Unsafe", "sanitize_context", "sanitizes", "unsafe", "unsafe_context"]
