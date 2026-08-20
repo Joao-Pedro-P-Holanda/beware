@@ -72,7 +72,8 @@ lint = [
 ]
 docs = [
     "towncrier (==25.8.0)",
-    "mkdocs (==1.6.1)"
+    "zensical (==0.0.43)",
+    "mkdocstrings-python==2.0.5",
 ]
 
 
