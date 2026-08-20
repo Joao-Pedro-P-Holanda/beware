@@ -50,7 +50,10 @@ def test_dont_applies_on_dunder_get_attr():
     assert instance.__getattr__("a") != "value"
 
 
-def test_unsafe_internal_attributes_dont_appear_on_instance_dict(): ...
+def test_unsafe_internal_attributes_dont_appear_on_instance_dict():
+    instance = Example()
+    descriptor_private_name = Example.a._private_name
+    assert instance.__dict__.get(descriptor_private_name) is None
 
 
 def test_unsafe_access_dont_triggers_on_attribution():
