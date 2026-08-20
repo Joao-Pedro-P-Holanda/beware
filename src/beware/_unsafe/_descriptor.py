@@ -108,7 +108,13 @@ def unsafe(default: Any | None = _MISSING_DEFAULT) -> Any:
 
     Warnings
     -----
-        Default values can be accessed normally
+        Default values can be accessed normally after calling 'del' on the descripted
+        field
+
+    Returns
+    -------
+    Unsafe
+          An Unsafe descriptor instance with the given default value
     """
 
     return Unsafe(default=default)

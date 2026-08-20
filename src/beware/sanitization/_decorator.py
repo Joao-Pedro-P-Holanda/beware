@@ -4,6 +4,7 @@ from functools import wraps
 from typing import ParamSpec, TypeVar, cast
 
 from beware._unsafe import Unsafe
+
 from ._context import sanitize_context
 
 P = ParamSpec("P")
@@ -24,8 +25,8 @@ def sanitizes(
 
     Returns
     -------
-    A decorated function that will sanitize all given unsafe attributes when modified
-    inside the function
+    Callable
+            A decorated function that will sanitize all given unsafe attributes modified inside the function
 
 
     Examples

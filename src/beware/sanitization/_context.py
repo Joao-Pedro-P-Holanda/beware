@@ -1,3 +1,4 @@
+from collections.abc import Generator
 from contextlib import contextmanager
 from typing import Any
 
@@ -5,13 +6,18 @@ from beware._unsafe import unsafe_context
 
 
 @contextmanager
-def sanitize_context(*attrs: Any):
+def sanitize_context(*attrs: Any) -> Generator[None, None, None]:
     """Context manager for marking the specified attributes as sanitized after assignment
 
     Parameters
     ----------
     attrs : tuple[Unsafe, ...]
             arguments that are sanitized after an assignment
+
+    Yields
+    ------
+    None
+
 
     Examples
     --------

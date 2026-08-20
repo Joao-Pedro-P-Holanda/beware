@@ -12,7 +12,7 @@ def unsafe_context(*attrs: Unsafe) -> Generator[None, None, None]:
     Parameters
     ----------
     attrs : tuple[Unsafe, ...]
-            arguments that can be acessed without raising UnsafeReadException,
+            arguments that can be acessed without raising UnsafeReferenceException,
 
 
     Raises
@@ -20,6 +20,9 @@ def unsafe_context(*attrs: Unsafe) -> Generator[None, None, None]:
     TypeError
         If the given attrs are not Unsafe descriptors
 
+    Yields
+    ------
+    None
 
     Examples
     --------
