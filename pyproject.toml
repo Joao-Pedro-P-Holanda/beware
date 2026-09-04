@@ -1,6 +1,6 @@
 [project]
 name = "beware"
-version = "0.1.0"
+version = "0.2.0"
 description = "A pure python package with zero dependencies that provides functions to track the usage of unsafe attributes on the code and perform sanitization."
 authors = [
     {name = "João Pedro", email = "joaopedroph.dev@gmail.com"}

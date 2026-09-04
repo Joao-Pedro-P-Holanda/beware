@@ -7,6 +7,21 @@ defined on the `changelog` folder.
 
 <!-- towncrier release notes start -->
 
+## [0.2.0](https://github.com/Joao-Pedro-P-Holanda/beware/tree/0.2.0) - 2026-09-04
+
+### Security
+
+- Hardened github actions workflows by fixing [zizmor](https://docs.zizmor.sh/) findings
+
+### Added
+
+- Add project documentation describing library usage, caveats and contributing guide with zensical. Deployed on Github Pages at https://joao-pedro-p-holanda.github.io/beware/
+
+### Fixed
+
+- Corrected syntax docstrings examples
+
+
 ## [0.1.0](https://github.com/Joao-Pedro-P-Holanda/beware/tree/0.1.0) - 2026-05-30
 
 ### Added
