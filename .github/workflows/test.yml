@@ -43,7 +43,7 @@ jobs:
       group: ${{ github.workflow }}-${{ matrix.python-version }}
       cancel-in-progress: false
     steps:
-      - uses: actions/checkout@v6.0.3
+      - uses: actions/checkout@v7.0.1
         with:
           persist-credentials: false
       - run: pipx install poetry==2.4.1
