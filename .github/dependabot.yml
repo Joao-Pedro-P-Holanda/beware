@@ -12,3 +12,15 @@ updates:
       development-dependencies:
         patterns:
           - "*"
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    cooldown:
+      default-days: 3
+      include:
+        - "*"
+    groups:
+      external-actions:
+        patterns:
+          - "*"
