@@ -5,7 +5,19 @@ on:
   push:
     branches:
       - 'main'
+    paths-ignore:
+      - ".github/workflows/dependabot.yml"
+      - "docs/**"
+      - "*.md"
+      - ".gitignore"
+      - "LICENSE"
   pull_request:
+    paths-ignore:
+      - ".github/workflows/dependabot.yml"
+      - "docs/**"
+      - "*.md"
+      - ".gitignore"
+      - "LICENSE"
 
 permissions: {}
 
